@@ -8,9 +8,16 @@ const dealerList = {
     dealerData.getAllDealerData()
     .then(dealerImportantInfo => {
         // console.log(dealerImportantInfo)
-      dealerImportantInfo.forEach(madDataFlow => {
-        console.log(madDataFlow.gross_profit)
-      })
+        let dealerDocFragment = document.createDocumentFragment();
+        dealer.addProfit(dealerImportantInfo);
+        dealerDocFragment.appendChild(dealer.addProfit(dealerImportantInfo));
+        document.querySelector(".output").appendChild(dealerDocFragment);
+
+        dealerImportantInfo.forEach(info => {
+          console.log(info.purchase_date);
+        })
+
+
     })
   }
 }
