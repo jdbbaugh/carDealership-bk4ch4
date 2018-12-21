@@ -9,7 +9,8 @@ const dealerList = {
     .then(dealerImportantInfo => {
         // console.log(dealerImportantInfo)
       dealerImportantInfo.forEach(madDataFlow => {
-        console.log(madDataFlow.gross_profit)
+        // console.log(madDataFlow.gross_profit)
+        dealer.showProfit(madDataFlow);
       })
     })
   }

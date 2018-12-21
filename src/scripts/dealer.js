@@ -2,6 +2,10 @@
 import dealerList from "./dealerList"
 
 const dealer = {
+  showProfit(fromDealer) {
+    // console.log(fromDealer.gross_profit);
+    
+  }
 
 }
 
