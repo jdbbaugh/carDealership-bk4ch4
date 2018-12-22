@@ -9,13 +9,20 @@ const dealerList = {
     .then(dealerImportantInfo => {
         // console.log(dealerImportantInfo)
         let dealerDocFragment = document.createDocumentFragment();
-        dealer.addProfit(dealerImportantInfo);
         dealerDocFragment.appendChild(dealer.addProfit(dealerImportantInfo));
         document.querySelector(".output").appendChild(dealerDocFragment);
 
+        let salesDates = [];
         dealerImportantInfo.forEach(info => {
-          console.log(info.purchase_date);
+          salesDates.push(info.purchase_date)
         })
+        salesDates.sort(function(a, b) {
+          // convert date object into number to resolve issue in typescript
+          return  +new Date(a.date) - +new Date(b.date);
+        })
+        // console.log(salesDates)
+
+        
 
 
     })
