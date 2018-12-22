@@ -5,10 +5,16 @@ const dealer = {
   addProfit(fromDealer) {
     // const profitSum = fromDealer.gross_profit.reduce((total, amount) => {total +amount});
     // console.log(fromDealer);
-    let addProfit = 0
+    let addProfit = 0;
+    const startOfYear = new Date("2017-01-01");
+    const endOfYear = new Date("2017-12-31");
+    // console.log(startOfYear)
+
     fromDealer.forEach(info => {
+      let dateAdd = new Date (info.purchase_date)
+      if (dateAdd >= startOfYear && dateAdd <= endOfYear) {
       addProfit += info.gross_profit
-      console.log(info.purchase_date)
+      console.log(info.purchase_date)}
     })
     // console.log(addProfit);
     let profitContainer = document.createElement("h2");
