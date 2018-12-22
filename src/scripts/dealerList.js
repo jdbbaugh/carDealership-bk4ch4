@@ -12,15 +12,9 @@ const dealerList = {
         dealerDocFragment.appendChild(dealer.addProfit(dealerImportantInfo));
         document.querySelector(".output").appendChild(dealerDocFragment);
 
-        let salesDates = [];
-        dealerImportantInfo.forEach(info => {
-          salesDates.push(info.purchase_date)
-        })
-        salesDates.sort(function(a, b) {
-          // convert date object into number to resolve issue in typescript
-          return  +new Date(a.date) - +new Date(b.date);
-        })
-        // console.log(salesDates)
+        dealerDocFragment.appendChild(dealer.mostSellsMonth(dealerImportantInfo));
+        document.querySelector(".output").appendChild(dealerDocFragment);
+
 
         
 
