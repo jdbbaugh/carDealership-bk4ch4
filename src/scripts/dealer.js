@@ -83,17 +83,38 @@ const dealer = {
         dateObject.dec++
         break;
         }
-      console.log(makeDate.getMonth())
+      // console.log(makeDate.getMonth())
     })
-    console.log(dateObject)
+    // console.log(dateObject)
     let highestMo = Object.keys(dateObject).reduce((a, b) => dateObject[a] > dateObject[b] ? a : b);
-    console.log(highestMo)
+    // console.log(highestMo)
     let highestMonthContainer = document.createElement("h2");
-    highestMonthContainer.setAttribute("class", "profit-container");
-    highestMonthContainer.textContent = `Highest Month of Sales = ${highestMo}`;
+    highestMonthContainer.setAttribute("class", "big-month-container");
+    highestMonthContainer.textContent = `Highest Month of Sales = ${highestMo} with ${dateObject.jun} sales`;
     return highestMonthContainer;
-  }
+  },
+  mostCarsSoldByMan (manSaleObject) {
+    let salesPeople = []
+    manSaleObject.forEach(agent => {
+    salesPeople.push(`${agent.sales_agent.first_name} ${agent.sales_agent.last_name}`)
+  })
+  // console.log(salesPeople.sort());
 
-}
+  const nameSort = salesPeople.reduce((obj, item) => {
+    if(!obj[item]) {
+      obj[item] = 0;
+    }
+    obj[item]++;
+    return obj;
+  }, {});
+  console.log(nameSort);
+  const biggestSalesman = Object.keys(nameSort).reduce((a, b) => nameSort[a] > nameSort[b] ? a : b);
+  console.log(biggestSalesman)
+  let mostCarsSoldbyThisSalesman = document.createElement("h2");
+  mostCarsSoldbyThisSalesman.setAttribute("class", "most-sales-person");
+  mostCarsSoldbyThisSalesman.textContent = `The most cars were sold by = ${biggestSalesman}`;
+  return mostCarsSoldbyThisSalesman;
+  }
+};
 
 export default dealer
