@@ -107,14 +107,44 @@ const dealer = {
     obj[item]++;
     return obj;
   }, {});
-  console.log(nameSort);
+  // console.log(nameSort);
   const biggestSalesman = Object.keys(nameSort).reduce((a, b) => nameSort[a] > nameSort[b] ? a : b);
-  console.log(biggestSalesman)
+  // console.log(biggestSalesman)
   let mostCarsSoldbyThisSalesman = document.createElement("h2");
   mostCarsSoldbyThisSalesman.setAttribute("class", "most-sales-person");
   mostCarsSoldbyThisSalesman.textContent = `The most cars were sold by = ${biggestSalesman}`;
   return mostCarsSoldbyThisSalesman;
+  },
+  mostProfitingSalesman (salesDigits) {
+    salesDigits.forEach( sell => {
+      // console.log(sell.sales_agent.first_name, sell.gross_profit)
+    })
+  const showSalesmansProfit = salesDigits.reduce((obj, item) => {
+    // console.log(item)
+    if(!obj[item.sales_agent.first_name]) {
+      obj[item.sales_agent.first_name] = 0;
+    }
+    obj[item.sales_agent.first_name] += item.gross_profit;
+    return obj;
+  }, {});
+  console.log(showSalesmansProfit)
+
+  let sortProfits = [];
+  for (var salesMan in showSalesmansProfit) {
+      sortProfits.push([salesMan, showSalesmansProfit[salesMan]]);
   }
+
+  let finalProfitList = sortProfits.sort((a, b) => {
+      return a[1] - b[1];
+  });
+  console.log(finalProfitList.reverse()[0]);
+
+  let profitMVPis = document.createElement("h2");
+  profitMVPis.setAttribute("class", "most-profiting-salesperson");
+  profitMVPis.textContent = `The most profit in sales was by = ${finalProfitList[0][0]} with $${finalProfitList[0][1]} in sales.`;
+  return profitMVPis;
+  }
+
 };
 
 export default dealer

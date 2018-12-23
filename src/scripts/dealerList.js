@@ -17,6 +17,11 @@ const dealerList = {
 
         dealerDocFragment.appendChild(dealer.mostCarsSoldByMan(dealerImportantInfo));
         document.querySelector(".output").appendChild(dealerDocFragment);
+
+        dealerDocFragment.appendChild(dealer.mostProfitingSalesman(dealerImportantInfo));
+        document.querySelector(".output").appendChild(dealerDocFragment);
+
+
     })
   }
 }
