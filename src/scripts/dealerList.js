@@ -15,10 +15,8 @@ const dealerList = {
         dealerDocFragment.appendChild(dealer.mostSellsMonth(dealerImportantInfo));
         document.querySelector(".output").appendChild(dealerDocFragment);
 
-
-        
-
-
+        dealerDocFragment.appendChild(dealer.mostCarsSoldByMan(dealerImportantInfo));
+        document.querySelector(".output").appendChild(dealerDocFragment);
     })
   }
 }
