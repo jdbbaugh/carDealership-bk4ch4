@@ -169,12 +169,41 @@ const dealer = {
         return a[1] - b[1];
     });
     finalProfitList.reverse();
-    console.log(finalProfitList);
+    // console.log(finalProfitList);
 
     let mostSoldVehicleModel = document.createElement("h2");
     mostSoldVehicleModel.setAttribute("class", "most-profiting-salesperson");
     mostSoldVehicleModel.textContent = `The most sold model of vehicle was = ${finalProfitList[0][0]} with ${finalProfitList[0][1]} vehicles sold.`;
     return mostSoldVehicleModel;
+  },
+  mostBankLoansBank (getBanked) {
+    // console.log(getBanked)
+    const bankSorting = getBanked.reduce((obj, item) => {
+      // console.log(item.credit.credit_provider);
+      if(!obj[item.credit.credit_provider]) {
+        obj[item.credit.credit_provider] = 0;
+      }
+      obj[item.credit.credit_provider]++;
+      return obj;
+    }, {});
+    // console.log(bankSorting);
+
+    let sortBankLoans = [];
+    for (let bank in bankSorting) {
+        sortBankLoans.push([bank, bankSorting[bank]]);
+    }
+  
+    let finalBankList = sortBankLoans.sort((a, b) => {
+        return a[1] - b[1];
+    });
+    finalBankList.reverse();
+    console.log(finalBankList);
+
+    let bankThatLoanedTheMost = document.createElement("h2");
+    bankThatLoanedTheMost.setAttribute("class", "most-profiting-salesperson");
+    bankThatLoanedTheMost.textContent = `The bank that loaned the most times was = ${finalBankList[0][0]} with ${finalBankList[0][1]} loans.`;
+    return bankThatLoanedTheMost;
+
   }
 
 };
