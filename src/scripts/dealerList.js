@@ -23,6 +23,9 @@ const dealerList = {
 
         dealerDocFragment.appendChild(dealer.mostPopularModel(dealerImportantInfo));
         document.querySelector(".output").appendChild(dealerDocFragment);
+
+        dealerDocFragment.appendChild(dealer.mostBankLoansBank(dealerImportantInfo));
+        document.querySelector(".output").appendChild(dealerDocFragment);
     })
   }
 }
