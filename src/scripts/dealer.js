@@ -127,7 +127,7 @@ const dealer = {
     obj[item.sales_agent.first_name] += item.gross_profit;
     return obj;
   }, {});
-  console.log(showSalesmansProfit)
+  // console.log(showSalesmansProfit)
 
   let sortProfits = [];
   for (var salesMan in showSalesmansProfit) {
@@ -137,12 +137,44 @@ const dealer = {
   let finalProfitList = sortProfits.sort((a, b) => {
       return a[1] - b[1];
   });
-  console.log(finalProfitList.reverse()[0]);
+  
+  finalProfitList.reverse()[0]
 
   let profitMVPis = document.createElement("h2");
   profitMVPis.setAttribute("class", "most-profiting-salesperson");
   profitMVPis.textContent = `The most profit in sales was by = ${finalProfitList[0][0]} with $${finalProfitList[0][1]} in sales.`;
   return profitMVPis;
+  },
+  mostPopularModel (objectsForModels) {
+    // console.log(objectsForModels);
+    objectsForModels.forEach(carSearch => {
+      // console.log(carSearch.vehicle.model)
+    })
+    const mostSoldModel = objectsForModels.reduce((obj, item) => {
+      // console.log(item.vehicle.model)
+      if(!obj[item.vehicle.model]) {
+        obj[item.vehicle.model] = 0;
+      }
+      obj[item.vehicle.model]++;
+      return obj;
+    }, {});
+    // console.log(mostSoldModel)
+
+    let sortCarModels = [];
+    for (var model in mostSoldModel) {
+        sortCarModels.push([model, mostSoldModel[model]]);
+    }
+  
+    let finalProfitList = sortCarModels.sort((a, b) => {
+        return a[1] - b[1];
+    });
+    finalProfitList.reverse();
+    console.log(finalProfitList);
+
+    let mostSoldVehicleModel = document.createElement("h2");
+    mostSoldVehicleModel.setAttribute("class", "most-profiting-salesperson");
+    mostSoldVehicleModel.textContent = `The most sold model of vehicle was = ${finalProfitList[0][0]} with ${finalProfitList[0][1]} vehicles sold.`;
+    return mostSoldVehicleModel;
   }
 
 };
