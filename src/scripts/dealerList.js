@@ -8,24 +8,29 @@ const dealerList = {
     dealerData.getAllDealerData()
     .then(dealerImportantInfo => {
         // console.log(dealerImportantInfo)
+
+        
         let dealerDocFragment = document.createDocumentFragment();
-        dealerDocFragment.appendChild(dealer.addProfit(dealerImportantInfo));
-        document.querySelector(".output").appendChild(dealerDocFragment);
-
-        dealerDocFragment.appendChild(dealer.mostSellsMonth(dealerImportantInfo));
-        document.querySelector(".output").appendChild(dealerDocFragment);
-
-        dealerDocFragment.appendChild(dealer.mostCarsSoldByMan(dealerImportantInfo));
-        document.querySelector(".output").appendChild(dealerDocFragment);
-
-        dealerDocFragment.appendChild(dealer.mostProfitingSalesman(dealerImportantInfo));
-        document.querySelector(".output").appendChild(dealerDocFragment);
-
-        dealerDocFragment.appendChild(dealer.mostPopularModel(dealerImportantInfo));
-        document.querySelector(".output").appendChild(dealerDocFragment);
-
-        dealerDocFragment.appendChild(dealer.mostBankLoansBank(dealerImportantInfo));
-        document.querySelector(".output").appendChild(dealerDocFragment);
+        $(dealerDocFragment).append(dealer.addProfit(dealerImportantInfo));
+        $(".output").append(dealerDocFragment);
+        
+        $(dealerDocFragment).append(dealer.mostSellsMonth(dealerImportantInfo));
+        $(".output").append(dealerDocFragment);
+        
+        $(dealerDocFragment).append(dealer.mostCarsSoldByMan(dealerImportantInfo));
+        $(".output").append(dealerDocFragment);
+        
+        $(dealerDocFragment).append(dealer.mostProfitingSalesman(dealerImportantInfo));
+        $(".output").append(dealerDocFragment);
+        
+        $(dealerDocFragment).append(dealer.mostPopularModel(dealerImportantInfo));
+        $(".output").append(dealerDocFragment);
+        
+        $(dealerDocFragment).append(dealer.mostBankLoansBank(dealerImportantInfo));
+        $(".output").append(dealerDocFragment);
+        
+        $(".output").prepend("<header><h1>2017 CARDEALER STATS</h1></header>")
+        
     })
   }
 }

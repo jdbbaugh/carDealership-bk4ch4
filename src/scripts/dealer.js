@@ -89,7 +89,7 @@ const dealer = {
     let highestMo = Object.keys(dateObject).reduce((a, b) => dateObject[a] > dateObject[b] ? a : b);
     // console.log(highestMo)
     let highestMonthContainer = document.createElement("h2");
-    highestMonthContainer.setAttribute("class", "big-month-container");
+    $(highestMonthContainer).attr("class", "big-month-container");
     highestMonthContainer.textContent = `Highest Month of Sales = ${highestMo} with ${dateObject.jun} sales`;
     return highestMonthContainer;
   },
@@ -111,7 +111,7 @@ const dealer = {
   const biggestSalesman = Object.keys(nameSort).reduce((a, b) => nameSort[a] > nameSort[b] ? a : b);
   // console.log(biggestSalesman)
   let mostCarsSoldbyThisSalesman = document.createElement("h2");
-  mostCarsSoldbyThisSalesman.setAttribute("class", "most-sales-person");
+  $(mostCarsSoldbyThisSalesman).attr("class", "most-sales-person");
   mostCarsSoldbyThisSalesman.textContent = `The most cars were sold by = ${biggestSalesman}`;
   return mostCarsSoldbyThisSalesman;
   },
@@ -141,7 +141,7 @@ const dealer = {
   finalProfitList.reverse()[0]
 
   let profitMVPis = document.createElement("h2");
-  profitMVPis.setAttribute("class", "most-profiting-salesperson");
+  $(profitMVPis).attr("class", "most-profiting-salesperson");
   profitMVPis.textContent = `The most profit in sales was by = ${finalProfitList[0][0]} with $${finalProfitList[0][1]} in sales.`;
   return profitMVPis;
   },
@@ -172,7 +172,7 @@ const dealer = {
     // console.log(finalProfitList);
 
     let mostSoldVehicleModel = document.createElement("h2");
-    mostSoldVehicleModel.setAttribute("class", "most-profiting-salesperson");
+    $(mostSoldVehicleModel).attr("class", "most-profiting-salesperson");
     mostSoldVehicleModel.textContent = `The most sold model of vehicle was = ${finalProfitList[0][0]} with ${finalProfitList[0][1]} vehicles sold.`;
     return mostSoldVehicleModel;
   },
@@ -203,9 +203,7 @@ const dealer = {
     bankThatLoanedTheMost.setAttribute("class", "most-profiting-salesperson");
     bankThatLoanedTheMost.textContent = `The bank that loaned the most times was = ${finalBankList[0][0]} with ${finalBankList[0][1]} loans.`;
     return bankThatLoanedTheMost;
-
   }
-
 };
 
 export default dealer
